@@ -1,0 +1,22 @@
+helmCharts:
+  - name: juicefs-csi-driver
+    includeCRDs: true
+    valuesInline:
+      controller:
+        provisioner: true # https://juicefs.com/docs/csi/guide/pv/#using-path-pattern
+      storageClasses:
+        - name: juicefs-sc
+          enabled: true
+          reclaimPolicy: Retain
+          backend:
+            name: "juicefs-filesystem"
+            metaurl: "redis://release-name-keydb/1"
+            storage: "redis"
+            bucket: "redis://release-name-keydb/2"
+            access-key: "" # Username
+            secret-key: "" # Password
+            # Adjust mount pod timezone, defaults to UTC.
+            # envs: "{TZ: Asia/Shanghai}"
+            # If you need to format a volume within the mount pod, fill in format options below.
+            # format-options: trash-days=1,block-size=4096
+    repo: https://juicedata.github.io/charts/

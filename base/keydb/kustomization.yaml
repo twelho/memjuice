@@ -1,0 +1,6 @@
+helmCharts:
+  - name: keydb
+    includeCRDs: true
+    valuesInline:
+      nodes: 2
+    repo: https://enapter.github.io/charts/

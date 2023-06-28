@@ -1,0 +1,19 @@
+resources:
+  - ../base/keydb
+  - ../base/juicefs
+  - local-pv.yaml
+  - namespace-default.yaml
+  - storage-class.yaml
+
+patches:
+  # A single patch can apply to multiple objects,
+  # but not the other way around, thus, the patch
+  # defines common, baseline configuration
+  - path: patch/local-pv.yaml
+    target:
+      kind: PersistentVolume
+      name: local-pv-[0-9]+
+  - path: patch/keydb.yaml
+    target:
+      kind: StatefulSet
+      name: release-name-keydb
