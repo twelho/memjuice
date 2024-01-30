@@ -1,0 +1,3 @@
+resources:
+  - ../base/dashboard
+  - sample-user.yaml

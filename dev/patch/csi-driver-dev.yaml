@@ -1,0 +1,4 @@
+# Patch JuiceFS to use a local image of the CSI driver
+- op: replace
+  path: /spec/template/spec/containers/0/image
+  value: 127.0.0.1:5005/juicefs-csi-driver:dev-c85b456-dirty

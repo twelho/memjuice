@@ -17,3 +17,19 @@ patches:
     target:
       kind: StatefulSet
       name: release-name-keydb
+#  - path: patch/csi-driver-dev.yaml
+#    target:
+#      kind: StatefulSet
+#      name: juicefs-csi-controller
+#  - path: patch/csi-driver-dev.yaml
+#    target:
+#      kind: DaemonSet
+#      name: juicefs-csi-node
+  - path: patch/juicefs-single-replica.yaml
+    target:
+      kind: StatefulSet
+      name: juicefs-csi-controller
+  - path: patch/juicefs-immutable.yaml
+    target:
+      kind: DaemonSet
+      name: juicefs-csi-node
